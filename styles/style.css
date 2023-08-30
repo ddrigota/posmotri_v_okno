@@ -49,10 +49,10 @@ ol {
 }
 
 .result {
-  min-inline-size: 711px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-inline-size: 711px;
 }
 
 .result__video-container {
@@ -61,8 +61,8 @@ ol {
 
 .result__video {
   width: 100%;
-  max-block-size: 386px;
   object-fit: cover;
+  max-block-size: 386px;
 }
 
 .search-form {
@@ -80,9 +80,9 @@ ol {
   margin-block-end: 5px;
   color: #fff;
   font-family: 'Fira Sans Condensed', Arial, sans-serif;
+  font-weight: 400;
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
 }
 
 .search-form__label {
@@ -104,12 +104,12 @@ ol {
   border: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
+  padding-inline-start: 0;
   color: rgb(255 255 255 / 0.7);
   font-family: 'Fira Sans Condensed';
   font-size: 18px;
   background-color: transparent;
   inline-size: 100%;
-  padding-inline-start: 0;
   appearance: none;
 }
 
@@ -131,12 +131,12 @@ ol {
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox {
-  inline-size: 15px;
-  block-size: 15px;
   margin: 2px;
   outline: 1px solid #fff;
   outline-offset: 1px;
   background-color: #fff;
+  inline-size: 15px;
+  block-size: 15px;
 }
 
 .button {
@@ -183,9 +183,9 @@ ol {
 .title {
   color: #fff;
   font-family: Oswald, Arial, sans-serif;
+  font-weight: 700;
   font-size: 75px;
   font-style: normal;
-  font-weight: 700;
   line-height: 94%;
   text-transform: uppercase;
 }
@@ -263,26 +263,26 @@ ol {
 }
 
 .content__video-card-description-container {
-  min-inline-size: 200px;
   padding-block-start: 4px;
+  min-inline-size: 200px;
 }
 
 .content__video-card-title {
+  margin-block-end: 6px;
   color: #fff;
   font-family: Oswald, Arial, sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 100%;
   text-transform: uppercase;
-  margin-block-end: 6px;
 }
 
 .content__video-card-description {
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 400;
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
   line-height: 90%;
 }
 
