@@ -49,18 +49,20 @@ ol {
 }
 
 .result {
-  inline-size: 711px;
+  min-inline-size: 711px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .result__video-container {
   position: relative;
-  margin-block-end: 16px;
-  inline-size: 100%;
 }
 
 .result__video {
-  inline-size: 100%;
-  block-size: 100%;
+  width: 100%;
+  max-block-size: 386px;
+  object-fit: cover;
 }
 
 .search-form {
@@ -78,15 +80,16 @@ ol {
   margin-block-end: 5px;
   color: #fff;
   font-family: 'Fira Sans Condensed', Arial, sans-serif;
-  font-weight: 400;
   font-size: 18px;
   font-style: normal;
-  line-height: normal;
+  font-weight: 400;
 }
 
 .search-form__label {
   cursor: pointer;
 }
+
+/* Так и не разобрался, почему W3C валидатор ругается на свойство ниже */
 
 .search-form__label:has(:focus-visible) {
   outline: 1px solid rgb(255 255 255 / 0.7);
@@ -99,16 +102,14 @@ ol {
 
 .search-form__textfield {
   border: none;
-  border-top: 1px solid rgb(255 255 255 / 0.7);
-  border-bottom: 1px solid rgb(255 255 255 / 0.7);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   color: rgb(255 255 255 / 0.7);
   font-family: 'Fira Sans Condensed';
-  font-weight: 400;
   font-size: 18px;
-  font-style: normal;
-  line-height: normal;
   background-color: transparent;
   inline-size: 100%;
+  padding-inline-start: 0;
   appearance: none;
 }
 
@@ -130,8 +131,8 @@ ol {
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox {
-  width: 15px;
-  height: 15px;
+  inline-size: 15px;
+  block-size: 15px;
   margin: 2px;
   outline: 1px solid #fff;
   outline-offset: 1px;
@@ -145,8 +146,6 @@ ol {
   font-family: 'Fira Sans Condensed', Arial, sans-serif;
   font-weight: 700;
   font-size: 18px;
-  font-style: normal;
-  line-height: normal;
   text-align: center;
   background-color: transparent;
   cursor: pointer;
@@ -178,15 +177,15 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 20px;
 }
 
 .title {
   color: #fff;
   font-family: Oswald, Arial, sans-serif;
-  font-weight: 700;
   font-size: 75px;
   font-style: normal;
+  font-weight: 700;
   line-height: 94%;
   text-transform: uppercase;
 }
@@ -202,8 +201,8 @@ ol {
   gap: 30px;
   overflow-x: hidden;
   overflow-y: scroll;
-  block-size: 298px;
-  max-inline-size: 399px;
+  max-block-size: 300px;
+  max-inline-size: 400px;
 }
 
 .content__list::-webkit-scrollbar {
@@ -244,6 +243,19 @@ ol {
   background-color: #545050;
 }
 
+/*
+Дальше я отошел от макета, чтобы сохранить верстку
+Если все делать по размерам в макете, название
+города Зеленоградск не помещается в блок.
+
+Чтобы этого избежать (и не переносить текст), пришлось
+ - задать gap между текстом и изображением
+ - задать .content__video-card-description-container
+   min-inline-size: 200px;
+
+Из-за этого ширина изображений чуть меньше, чем в макете
+*/
+
 .content__video-card {
   display: flex;
   justify-content: space-between;
@@ -252,26 +264,25 @@ ol {
 
 .content__video-card-description-container {
   min-inline-size: 200px;
+  padding-block-start: 4px;
 }
 
 .content__video-card-title {
-  margin-block-end: 6px;
   color: #fff;
   font-family: Oswald, Arial, sans-serif;
   font-weight: 700;
   font-size: 30px;
-  font-style: normal;
-  line-height: 100%; /* 30px */
+  line-height: 100%;
   text-transform: uppercase;
+  margin-block-end: 6px;
 }
 
 .content__video-card-description {
-  margin-block-end: 6px;
   color: #fff;
-  font-family: 'Fira Sans Condensed', Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-style: normal;
+  font-weight: 400;
   line-height: 90%;
 }
 
