@@ -45,7 +45,7 @@ ol {
   align-items: end;
   gap: 30px;
   padding: 0 30px;
-  max-inline-size: 1440px;
+  max-block-size: 534px;
 }
 
 .result {
@@ -125,24 +125,13 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
+  display: grid;
+  place-content: center;
   border: 1px solid currentColor;
   vertical-align: middle;
   inline-size: 19px;
   block-size: 19px;
-  display: grid;
-  place-content: center;
 }
-
-/*
-.search-form__checkbox:checked + .search-form__pseudo-checkbox {
-  margin: 2px;
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-  background-color: #fff;
-  inline-size: 15px;
-  block-size: 15px;
-}
-*/
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   content: '';
@@ -189,7 +178,9 @@ ol {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-block-size: 534px;
+  gap: 20px;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .title {
@@ -206,21 +197,18 @@ ol {
 
 .content__list {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 34px;
   overflow: auto;
   max-block-size: 300px;
-  max-inline-size: 415px;
+  /* чтобы избежать боковой прокрутки при появлении скролла  */
+  max-inline-size: 418px;
 }
 
 .content__list-item {
-  min-block-size: 103px;
+  margin-block-end: 30px;
 }
 
 .content__card-link {
   display: block;
-  height: 100%;
   margin: 2px;
   color: #fff;
   text-decoration: none;
@@ -248,16 +236,14 @@ ol {
 }
 
 .content__video-card {
-  display: flex;
-  justify-content: space-between;
-  /* очень прошу помочь со слкедующим свойством. В макете не очевидно, что делать, если текст заезжает на изображение (нет таких длииных названий городов, как "Зеленоградск"), поэтому
-  варианта два, либо текст упирается в ихображение, либо изображение становится меньше.
-  Я выбрал второй вариант. Если убрать gap - будет первый  */
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 5px;
+  min-block-size: 107px;
 }
 
 .content__video-card-description-container {
-  padding-block-start: 4px;
+  padding-block-start: 6px;
 }
 
 .content__video-card-title {
@@ -274,10 +260,11 @@ ol {
 }
 
 .content__video-card-thumbnail {
+  place-self: center;
   object-fit: cover;
   object-position: 50% 50%;
-  inline-size: 194px;
   block-size: 103px;
+  inline-size: 194px;
 }
 
 .visually-hidden {
