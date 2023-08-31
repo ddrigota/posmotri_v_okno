@@ -131,11 +131,22 @@ ol {
   block-size: 19px;
 }
 
+/*
 .search-form__checkbox:checked + .search-form__pseudo-checkbox {
   margin: 2px;
   outline: 1px solid #fff;
   outline-offset: 1px;
   background-color: #fff;
+  inline-size: 15px;
+  block-size: 15px;
+}
+*/
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  content: '';
+  position: absolute;
+  margin: 1px;
+  background-color: currentColor;
   inline-size: 15px;
   block-size: 15px;
 }
