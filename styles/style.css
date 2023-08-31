@@ -45,7 +45,7 @@ ol {
   align-items: end;
   gap: 30px;
   padding: 0 30px;
-  max-block-size: 534px;
+  min-block-size: 534px;
 }
 
 .result {
@@ -180,7 +180,7 @@ ol {
   justify-content: space-between;
   gap: 20px;
   inline-size: 100%;
-  block-size: 100%;
+  min-block-size: 534px;
 }
 
 .title {
