@@ -45,7 +45,6 @@ ol {
   align-items: end;
   gap: 30px;
   padding: 0 30px;
-  min-block-size: 534px;
 }
 
 .result {
@@ -180,7 +179,6 @@ ol {
   justify-content: space-between;
   gap: 20px;
   inline-size: 100%;
-  min-block-size: 534px;
 }
 
 .title {
@@ -198,7 +196,7 @@ ol {
 .content__list {
   position: relative;
   overflow: auto;
-  max-block-size: 300px;
+  block-size: 300px;
   /* чтобы избежать боковой прокрутки при появлении скролла  */
   max-inline-size: 418px;
 }
