@@ -129,6 +129,8 @@ ol {
   vertical-align: middle;
   inline-size: 19px;
   block-size: 19px;
+  display: grid;
+  place-content: center;
 }
 
 /*
@@ -144,8 +146,6 @@ ol {
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   content: '';
-  position: absolute;
-  margin: 1px;
   background-color: currentColor;
   inline-size: 15px;
   block-size: 15px;
