@@ -51,17 +51,17 @@ ol {
 .result {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  min-inline-size: 711px;
+  gap: 12px;
 }
 
 .result__video-container {
   position: relative;
+  min-inline-size: 711px;
 }
 
 .result__video {
-  width: 100%;
   object-fit: cover;
+  inline-size: 100%;
   max-block-size: 386px;
 }
 
@@ -78,36 +78,38 @@ ol {
 
 .search-form__fieldset-title {
   margin-block-end: 5px;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
 }
 
 .search-form__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   cursor: pointer;
 }
 
 /* Так и не разобрался, почему W3C валидатор ругается на свойство ниже */
 
 .search-form__label:has(:focus-visible) {
-  outline: 1px solid rgb(255 255 255 / 0.7);
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
 .search-form__label:hover .search-form__label-text {
-  border-bottom: 1px solid #fff;
+  text-decoration: underline;
 }
 
 .search-form__textfield {
   border: none;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
   padding-inline-start: 0;
-  color: rgb(255 255 255 / 0.7);
-  font-family: 'Fira Sans Condensed';
-  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
   background-color: transparent;
   inline-size: 100%;
   appearance: none;
@@ -123,8 +125,7 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-  display: inline-block;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   vertical-align: middle;
   inline-size: 19px;
   block-size: 19px;
@@ -140,12 +141,12 @@ ol {
 }
 
 .button {
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   padding: 5px;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', Arial, sans-serif;
+  color: inherit;
+  font-family: inherit;
   font-weight: 700;
-  font-size: 18px;
+  font-size: inherit;
   text-align: center;
   background-color: transparent;
   cursor: pointer;
@@ -157,7 +158,7 @@ ol {
 }
 
 .button:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
   outline-offset: 1px;
 }
 
@@ -166,7 +167,6 @@ ol {
 }
 
 .button:active {
-  text-decoration: none;
   background: #545050;
 }
 
@@ -177,15 +177,14 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  min-block-size: 534px;
 }
 
 .title {
-  color: #fff;
   font-family: Oswald, Arial, sans-serif;
   font-weight: 700;
   font-size: 75px;
-  font-style: normal;
   line-height: 94%;
   text-transform: uppercase;
 }
@@ -198,24 +197,19 @@ ol {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  gap: 34px;
+  overflow: auto;
   max-block-size: 300px;
-  max-inline-size: 400px;
-}
-
-.content__list::-webkit-scrollbar {
-  display: none;
+  max-inline-size: 415px;
 }
 
 .content__list-item {
-  padding: 2px;
-  min-block-size: 107px;
+  min-block-size: 103px;
 }
 
 .content__card-link {
   display: block;
+  height: 100%;
   margin: 2px;
   color: #fff;
   text-decoration: none;
@@ -230,7 +224,7 @@ ol {
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
   outline-offset: 1px;
 }
 
@@ -239,37 +233,24 @@ ol {
 }
 
 .content__card-link:active {
-  text-decoration: none;
   background-color: #545050;
 }
-
-/*
-Дальше я отошел от макета, чтобы сохранить верстку
-Если все делать по размерам в макете, название
-города Зеленоградск не помещается в блок.
-
-Чтобы этого избежать (и не переносить текст), пришлось
- - задать gap между текстом и изображением
- - задать .content__video-card-description-container
-   min-inline-size: 200px;
-
-Из-за этого ширина изображений чуть меньше, чем в макете
-*/
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
+  /* очень прошу помочь со слкедующим свойством. В макете не очевидно, что делать, если текст заезжает на изображение (нет таких длииных названий городов, как "Зеленоградск"), поэтому
+  варианта два, либо текст упирается в ихображение, либо изображение становится меньше.
+  Я выбрал второй вариант. Если убрать gap - будет первый  */
   gap: 10px;
 }
 
 .content__video-card-description-container {
   padding-block-start: 4px;
-  min-inline-size: 200px;
 }
 
 .content__video-card-title {
   margin-block-end: 6px;
-  color: #fff;
   font-family: Oswald, Arial, sans-serif;
   font-weight: 700;
   font-size: 30px;
@@ -278,17 +259,14 @@ ol {
 }
 
 .content__video-card-description {
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  font-style: normal;
   line-height: 90%;
 }
 
 .content__video-card-thumbnail {
   object-fit: cover;
-  max-block-size: 103px;
+  object-position: 50% 50%;
+  inline-size: 194px;
+  block-size: 103px;
 }
 
 .visually-hidden {
